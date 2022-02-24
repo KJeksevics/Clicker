@@ -3,22 +3,26 @@
 <head>
 </head>
 <body>
-
 <h1 style="text-align:center">Donut Clicker</h1>
-<button id="Donut"></button>
-<p id=skaitamais>Donuts clicked:0</p>
+<button id="Donut" onclick="onClick()"></button>
+<p>Donuts clicked:<span id="skaitamais">0</span></p>
+<p>Donuts gotten:<span id="ar laiku">0</span></p>
+<p>Donuts:<span id="kopa">0</span></p>
 <h2>Shop</h2>
 <canvas></canvas>
 <script>
-    var count = 0;
-    var Donut = document.getElementById("Donut");
-    var skaitamais = document.getElementById("skaitamais")
-    button.onclick = function count(){
-    count++
+    var clicks = 0;
+    var autoclicks = 0;
+    function onClick(){
+        clicks += 1;
+        document.getElementById("skaitamais").innerHTML = clicks
+    };
+    function autoclick(){
+        autoclicks +=0.1;
     }
-    
+    function donutsclicked(){
 
+    }
 </script>
-
 </body>
 </html>
