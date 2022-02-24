@@ -6,8 +6,6 @@
 <h1 style="text-align:center">Donut Clicker</h1>
 <button id="Donut" onclick="onClick()"></button>
 <p>Donuts clicked:<span id="skaitamais">0</span></p>
-<p>Donuts gotten:<span id="ar laiku">0</span></p>
-<p>Donuts:<span id="kopa">0</span></p>
 <h2>Shop</h2>
 <canvas></canvas>
 <script>
@@ -18,11 +16,18 @@
         document.getElementById("skaitamais").innerHTML = clicks
     };
     function autoclick(){
-        autoclicks +=0.1;
-    }
-    function donutsclicked(){
+        autoclicks += 1;
+        document.getElementById("ar laiku").innerHTML = autoclicks
+    };
+    function donutskopa(){
+        
+    };
+    function buyautoclick(){
 
-    }
+    };
+    function buyclickvalue(){
+
+    };
 </script>
 </body>
 </html>
