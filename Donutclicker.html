@@ -5,17 +5,17 @@
 <body>
 
 <h1 style="text-align:center">Donut Clicker</h1>
-<button id="Donut"></button>
-<p id=skaitamais>Donuts clicked:0</p>
+<button id="Donut" onclick="onClick()"></button>
+<p>Donuts clicked:<a id="skaitamais">0</a></p>
 <h2>Shop</h2>
 <canvas></canvas>
 <script>
-    var count = 0;
-    var Donut = document.getElementById("Donut");
-    var skaitamais = document.getElementById("skaitamais")
-    button.onclick = function count(){
-    count++
-    }
+    var Donut = 0;
+    function onClick(){
+        clicks += 1;
+        document.getElemntById("skaitamais").innerHTML = clicks
+    };
+
     
 
 </script>
