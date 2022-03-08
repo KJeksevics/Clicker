@@ -4,41 +4,80 @@
 </head>
 <body>
     <h1 style="text-align:center">Donut Clicker</h1>
-    <button id="Donut" onclick="onClick()"></button>
+    <button id="Donut" onclick="onClick()" style="background-image: url('Chocolate-Donut-PNG.png'); background-size: cover; width: 300px; height: 300px;"></button>
     <p>Donuts:<span id="skaitamais">0</span></p>
+    <p id="dps">0 Donuts per/s.</p>
     <h2>Kwiki shop</h2>
+    <p>Auto clicker</p>
     <button onclick="buyautoclick()"></button>
     <p id="priceautoclicker">30 Donuts</p>
     <p id="cikautoclicker">0 Auto clickers</p>
+    <p>Click value</p>
+    <button onclick="buyclickvalue()"></button>
+    <p id="priceclickvalue">200 Donuts</p>
+    <p id="cikclickvalue">1 click value</p>
+    <button onclick="buymultiplier()"></button>
+    <p id="pricemultiplier">300 Donuts</p>
+    <p id="cikmultiplier">current 1x multiplier</p>
     <canvas></canvas>
+
     <script>
         var clicks = 0;
         var autoclick = 0;
+        var clickval = 1;
+        var multiplier = 1;
+
     function onClick(){
-        clicks += 1;
+        clicks = clicks + (1*clickval*multiplier);
         update()
+
     };
     function update(){
      
         document.getElementById("skaitamais").innerHTML = clicks;
+
         document.getElementById("cikautoclicker").innerHTML = autoclick  +  " Auto clickers";
         document.getElementById("priceautoclicker").innerHTML = ((autoclick+1)*30) + " Donuts";
+
+        document.getElementById("cikclickvalue").innerHTML = clickval + " click value";
+        document.getElementById("priceclickvalue").innerHTML = ((clickval + 1)*100) + " Donuts";
+
+        document.getElementById("dps").innerHTML = ((autoclick)*multiplier) + " Donuts per/s."
+
+        document.getElementById("cikmultiplier").innerHTML = "Current" + multiplier  +  "x Multipliers";
+        document.getElementById("pricemultiplier").innerHTML = ((multiplier+1)*150) + " Donuts";
     };
     function pieskaiti(){
-        clicks = clicks + autoclick;
+        clicks = clicks + autoclick*multiplier;
         update()
     }
     setInterval(pieskaiti, 1000);
 
     function buyautoclick(){
         if(clicks >= (( autoclick + 1  ) *30 )) {
-        clicks = clicks - (( autoclick + 1  ) *30);
-        autoclick = autoclick + 1;
-        update()
+            clicks = clicks - (( autoclick + 1  ) *30);
+            autoclick = autoclick + 1;
+            update()
+        }
+
+    
+    };
+
+    function buyclickvalue(){
+        if(clicks >=((clickval + 1)*100)){
+            clicks = clicks - ((clickval + 1) *100);
+            clickval = clickval + 1;
+            update()
         }
     };
-    function buyclickvalue(){
 
+    function buymultiplier(){
+            if(clicks >=((multiplier + 1)*150)){
+            clicks = clicks - ((multiplier + 1 ) *150);
+            multiplier = multiplier + 1;
+            update()
+            }
+            
     };
 </script>
 </body>
