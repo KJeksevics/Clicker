@@ -16,6 +16,9 @@
     <button onclick="buyclickvalue()"></button>
     <p id="priceclickvalue">200 Donuts</p>
     <p id="cikclickvalue">1 click value</p>
+    <button onclick="buymultiplier()"></button>
+    <p id="pricemultiplier">300 Donuts</p>
+    <p id="cikmultiplier">current 1x multiplier</p>
     <canvas></canvas>
 
     <script>
@@ -25,8 +28,7 @@
         var multiplier = 1;
 
     function onClick(){
-        clicks = clicks + (1*clickval);
-        clicks = clicks + multiplier;
+        clicks = clicks + (1*clickval*multiplier);
         update()
 
     };
@@ -40,13 +42,13 @@
         document.getElementById("cikclickvalue").innerHTML = clickval + " click value";
         document.getElementById("priceclickvalue").innerHTML = ((clickval + 1)*100) + " Donuts";
 
-        document.getElementById("dps").innerHTML = (autoclick) + " Donuts per/s."
+        document.getElementById("dps").innerHTML = ((autoclick)*multiplier) + " Donuts per/s."
 
-        document.getElementById("cikmultiplier").innerHTML = multiplier-1  +  " Multipliers";
-        document.getElementById("pricemultiplier").innerHTML = ((multiplier)*30) + " Donuts";
+        document.getElementById("cikmultiplier").innerHTML = "Current" + multiplier  +  "x Multipliers";
+        document.getElementById("pricemultiplier").innerHTML = ((multiplier+1)*150) + " Donuts";
     };
     function pieskaiti(){
-        clicks = clicks + autoclick;
+        clicks = clicks + autoclick*multiplier;
         update()
     }
     setInterval(pieskaiti, 1000);
@@ -67,6 +69,15 @@
             clickval = clickval + 1;
             update()
         }
+    };
+
+    function buymultiplier(){
+            if(clicks >=((multiplier + 1)*150)){
+            clicks = clicks - ((multiplier + 1 ) *150);
+            multiplier = multiplier + 1;
+            update()
+            }
+            
     };
 </script>
 </body>
