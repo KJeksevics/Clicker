@@ -14,16 +14,16 @@
     <p id="cikautoclicker">0 Auto clickers</p>
     <p>Click value</p>
     <button onclick="buyclickvalue()"></button>
-    <p id="priceclickvalue">100 Donuts</p>
+    <p id="priceclickvalue">200 Donuts</p>
     <p id="cikclickvalue">1 click value</p>
     <canvas></canvas>
     <script>
         var clicks = 0;
         var autoclick = 0;
-        var clickval = 0;
+        var clickval = 1;
 
     function onClick(){
-        clicks = clicks + 1;
+        clicks = clicks + (1*clickval);
         update()
     };
     function update(){
