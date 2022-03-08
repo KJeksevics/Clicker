@@ -8,7 +8,6 @@
     <p>Donuts:<span id="skaitamais">0</span></p>
     <p id="dps">0 Donuts per/s.</p>
     <h2>Kwiki shop</h2>
-<<<<<<< HEAD
     <p>Auto clicker</p>
     <button onclick="buyautoclick()"></button>
     <p id="priceautoclicker">30 Donuts</p>
@@ -17,32 +16,19 @@
     <button onclick="buyclickvalue()"></button>
     <p id="priceclickvalue">200 Donuts</p>
     <p id="cikclickvalue">1 click value</p>
-=======
-    <button onclick="buyautoclick()">buy autoclick</button>
-    <p id="priceautoclicker">30 Donuts</p>
-    <p id="cikautoclicker">0 Auto clickers</p>
-    <br></br>
-    <button onclick="buymultiplier()">buy multiplier</button>
-    <p id="pricemultiplier">30 Donuts</p>
-    <p id="cikmultiplier">0 Multipliers</p>
->>>>>>> 69d5fb7041b2595ed44018df1d933bbfcf464321
     <canvas></canvas>
 
     <script>
         var clicks = 0;
         var autoclick = 0;
-<<<<<<< HEAD
         var clickval = 1;
-
-    function onClick(){
-        clicks = clicks + (1*clickval);
-=======
         var multiplier = 1;
 
     function onClick(){
+        clicks = clicks + (1*clickval);
         clicks = clicks + multiplier;
->>>>>>> 69d5fb7041b2595ed44018df1d933bbfcf464321
         update()
+
     };
     function update(){
      
@@ -50,17 +36,14 @@
 
         document.getElementById("cikautoclicker").innerHTML = autoclick  +  " Auto clickers";
         document.getElementById("priceautoclicker").innerHTML = ((autoclick+1)*30) + " Donuts";
-<<<<<<< HEAD
 
         document.getElementById("cikclickvalue").innerHTML = clickval + " click value";
         document.getElementById("priceclickvalue").innerHTML = ((clickval + 1)*100) + " Donuts";
 
         document.getElementById("dps").innerHTML = (autoclick) + " Donuts per/s."
 
-=======
         document.getElementById("cikmultiplier").innerHTML = multiplier-1  +  " Multipliers";
         document.getElementById("pricemultiplier").innerHTML = ((multiplier)*30) + " Donuts";
->>>>>>> 69d5fb7041b2595ed44018df1d933bbfcf464321
     };
     function pieskaiti(){
         clicks = clicks + autoclick;
@@ -73,18 +56,6 @@
             clicks = clicks - (( autoclick + 1  ) *30);
             autoclick = autoclick + 1;
             update()
-<<<<<<< HEAD
-=======
-        }
-    };
-
-    function buymultiplier(){
-        if(clicks >= (( multiplier) *30 )) {
-            clicks = clicks - (( multiplier) *30);
-            multiplier = multiplier + 1;
-            // clicks = clicks + multiplier;
-            update()
->>>>>>> 69d5fb7041b2595ed44018df1d933bbfcf464321
         }
 
     
