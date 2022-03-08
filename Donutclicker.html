@@ -4,18 +4,25 @@
 </head>
 <body>
     <h1 style="text-align:center">Donut Clicker</h1>
-    <button id="Donut" onclick="onClick()"></button>
+    <button id="Donut" onclick="onClick()">donut</button>
     <p>Donuts:<span id="skaitamais">0</span></p>
     <h2>Kwiki shop</h2>
-    <button onclick="buyautoclick()"></button>
+    <button onclick="buyautoclick()">buy autoclick</button>
     <p id="priceautoclicker">30 Donuts</p>
     <p id="cikautoclicker">0 Auto clickers</p>
+    <br></br>
+    <button onclick="buymultiplier()">buy multiplier</button>
+    <p id="pricemultiplier">30 Donuts</p>
+    <p id="cikmultiplier">0 Multipliers</p>
     <canvas></canvas>
+
     <script>
         var clicks = 0;
         var autoclick = 0;
+        var multiplier = 1;
+
     function onClick(){
-        clicks += 1;
+        clicks = clicks + multiplier;
         update()
     };
     function update(){
@@ -23,6 +30,8 @@
         document.getElementById("skaitamais").innerHTML = clicks;
         document.getElementById("cikautoclicker").innerHTML = autoclick  +  " Auto clickers";
         document.getElementById("priceautoclicker").innerHTML = ((autoclick+1)*30) + " Donuts";
+        document.getElementById("cikmultiplier").innerHTML = multiplier-1  +  " Multipliers";
+        document.getElementById("pricemultiplier").innerHTML = ((multiplier)*30) + " Donuts";
     };
     function pieskaiti(){
         clicks = clicks + autoclick;
@@ -32,11 +41,23 @@
 
     function buyautoclick(){
         if(clicks >= (( autoclick + 1  ) *30 )) {
-        clicks = clicks - (( autoclick + 1  ) *30);
-        autoclick = autoclick + 1;
-        update()
+            clicks = clicks - (( autoclick + 1  ) *30);
+            autoclick = autoclick + 1;
+            update()
         }
     };
+
+    function buymultiplier(){
+        if(clicks >= (( multiplier) *30 )) {
+            clicks = clicks - (( multiplier) *30);
+            multiplier = multiplier + 1;
+            // clicks = clicks + multiplier;
+            update()
+        }
+
+    
+    };
+
     function buyclickvalue(){
 
     };
