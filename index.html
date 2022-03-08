@@ -1,13 +1,29 @@
 <!DOCTYPE html>
 <html>
-<Head>
+<head>
     <title>Doughnut clicker</title>
         <meta charset="utf-8">
-        <Style>
-                Body {
-                    Margin: 0;
+        <style>
+                body {
+                    margin: 0;
+                    background-image: url("programmesana_5.png");
+                    background-size:contain;
+                    background-repeat: no-repeat;
                 }
                 
+                .shop {
+                    background-image: url("programmesana_5.png");
+                    grid-row-start: 3;
+                    grid-row-end: 6;
+                    /* grid-template-columns: 1fr ; */
+                    display: grid; 
+                    grid-template-rows: 1fr 2fr 2fr;
+
+
+
+                }
+
+
                 .container {
                     width: 100vw;
                     height: 100vh;
@@ -27,7 +43,7 @@
                     box-sizing: border-box;
 
                 }
-                .container div {
+                div {
                     padding:10px;
                     border: 1px solid #000000;
                 
@@ -46,13 +62,13 @@
                     grid-row-end:3 ;
                 }
                 .content-small {
-                    grid-row-start: 3;
-                    grid-row-end:4 ;
+                    grid-row-start: 1;
+                    grid-row-end:2 ;
                 }
                
                 
-        </Style>
-</Head>
+        </style>
+</head>
 
 <body>
     <div class="container">
@@ -61,9 +77,16 @@
         </div>
         <div class="content-large">Content 1</div>
         <div class="content-mid">counter </div>
-        <div class="content-small">Kivk e mart</div>
-        <div class="content-mid-large">buy here</div>
-        <div class="content-mid-large">buy here 2</div>
+
+
+        <div class="shop">
+            <div class="content-small">Kivk e mart</div>
+            <div class="content-mid-large">buy here</div>
+            <div class="content-mid-large">buy here 2</div>
+        </div>
+
+
+
     </div>
 
  
