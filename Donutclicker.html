@@ -6,23 +6,38 @@
     <h1 style="text-align:center">Donut Clicker</h1>
     <button id="Donut" onclick="onClick()"></button>
     <p>Donuts:<span id="skaitamais">0</span></p>
+    <p id="dps">0 Donuts per/s.</p>
     <h2>Kwiki shop</h2>
+    <p>Auto clicker</p>
     <button onclick="buyautoclick()"></button>
     <p id="priceautoclicker">30 Donuts</p>
     <p id="cikautoclicker">0 Auto clickers</p>
+    <p>Click value</p>
+    <button onclick="buyclickvalue()"></button>
+    <p id="priceclickvalue">100 Donuts</p>
+    <p id="cikclickvalue">1 click value</p>
     <canvas></canvas>
     <script>
         var clicks = 0;
         var autoclick = 0;
+        var clickval = 0;
+
     function onClick(){
-        clicks += 1;
+        clicks = clicks + 1;
         update()
     };
     function update(){
      
         document.getElementById("skaitamais").innerHTML = clicks;
+
         document.getElementById("cikautoclicker").innerHTML = autoclick  +  " Auto clickers";
         document.getElementById("priceautoclicker").innerHTML = ((autoclick+1)*30) + " Donuts";
+
+        document.getElementById("cikclickvalue").innerHTML = clickval + " click value";
+        document.getElementById("priceclickvalue").innerHTML = ((clickval + 1)*100) + " Donuts";
+
+        document.getElementById("dps").innerHTML = (autoclick) + " Donuts per/s."
+
     };
     function pieskaiti(){
         clicks = clicks + autoclick;
@@ -32,13 +47,17 @@
 
     function buyautoclick(){
         if(clicks >= (( autoclick + 1  ) *30 )) {
-        clicks = clicks - (( autoclick + 1  ) *30);
-        autoclick = autoclick + 1;
-        update()
+            clicks = clicks - (( autoclick + 1  ) *30);
+            autoclick = autoclick + 1;
+            update()
         }
     };
     function buyclickvalue(){
-
+        if(clicks >=((clickval + 1)*100)){
+            clicks = clicks - ((clickval + 1) *100);
+            clickval = clickval + 1;
+            update()
+        }
     };
 </script>
 </body>
