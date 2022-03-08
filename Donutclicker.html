@@ -3,27 +3,38 @@
 <head>
 </head>
 <body>
-<h1 style="text-align:center">Donut Clicker</h1>
-<button id="Donut" onclick="onClick()"></button>
-<p>Donuts clicked:<span id="skaitamais">0</span></p>
-<h2>Shop</h2>
-<canvas></canvas>
-<script>
-    var clicks = 0;
-    var autoclicks = 0;
+    <h1 style="text-align:center">Donut Clicker</h1>
+    <button id="Donut" onclick="onClick()"></button>
+    <p>Donuts:<span id="skaitamais">0</span></p>
+    <h2>Kwiki shop</h2>
+    <button onclick="buyautoclick()"></button>
+    <p id="priceautoclicker"> Donuts</p>
+    <p id="cikautoclicker">0 Auto clickers</p>
+    <canvas></canvas>
+    <script>
+        var clicks = 0;
+        var autoclick = 0;
     function onClick(){
         clicks += 1;
+        update()
+    };
+    function update(){
+     
         document.getElementById("skaitamais").innerHTML = clicks
+        document.getElementById("cikautoclicker").innerHTML = autoclick  +  " Auto clickers";
     };
-    function autoclick(){
-        autoclicks += 1;
-        document.getElementById("ar laiku").innerHTML = autoclicks
-    };
-    function donutskopa(){
-        
-    };
-    function buyautoclick(){
+    function pieskaiti(){
+        clicks = clicks + autoclick;
+        update()
+    }
+    setInterval(pieskaiti, 1000);
 
+    function buyautoclick(){
+        if(clicks >= (( autoclick + 1  ) *30 )) {
+        clicks = clicks - (( autoclick + 1  ) *30);
+        autoclick = autoclick + 1;
+        update()
+        }
     };
     function buyclickvalue(){
 
