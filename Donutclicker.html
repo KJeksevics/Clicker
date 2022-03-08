@@ -20,8 +20,9 @@
     };
     function update(){
      
-        document.getElementById("skaitamais").innerHTML = clicks
+        document.getElementById("skaitamais").innerHTML = clicks;
         document.getElementById("cikautoclicker").innerHTML = autoclick  +  " Auto clickers";
+        document.getElementById("priceautoclicker").innerHTML = ((autoclick+1)*30) + " Donuts";
     };
     function pieskaiti(){
         clicks = clicks + autoclick;
