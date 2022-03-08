@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<Head>
+    <title>Doughnut clicker</title>
+        <meta charset="utf-8">
+        <Style>
+                Body {
+                    Margin: 0;
+                }
+                
+                .container {
+                    width: 100vw;
+                    height: 100vh;
+
+                    font-family:'Quicksand', sans-serif;
+                    font-weight: bold ;
+                    font-size: 20px;
+                    
+                    display: grid; 
+
+                    grid-template-columns: 1fr 1fr ;
+                    grid-template-rows: 1fr 1fr 0.5fr 1.5fr 1.5fr 50px;
+                    
+                    gap: 10px; 
+
+                    padding: 10px;
+                    box-sizing: border-box;
+
+                }
+                .container div {
+                    padding:10px;
+                    border: 1px solid #000000;
+                
+                }
+            
+                .header {
+                    grid-column-start: 1;
+                    grid-column-end: 2;
+                }
+                .content-large {
+                    grid-row-start: 2;
+                    grid-row-end: 6 ;
+                }
+                .content-mid {
+                    grid-row-start: 1;
+                    grid-row-end:3 ;
+                }
+                .content-small {
+                    grid-row-start: 3;
+                    grid-row-end:4 ;
+                }
+               
+                
+        </Style>
+</Head>
+
+<body>
+    <div class="container">
+        <div class="header">Doughut Clicker</div>
+        <div class="content-large">Content 1</div>
+        <div class="content-mid">counter </div>
+        <div class="content-small">Kivk e mart</div>
+        <div class="content-mid-large">buy here</div>
+        <div class="content-mid-large">buy here 2</div>
+    </div>
+
+ 
+
+
+
+</body>
+</html>
