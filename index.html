@@ -84,29 +84,103 @@
 
 <body>
     <div class="container">
-        <div class="header">Doughut Clicker
-            
+        <div class="header">Doughut Clicker  
         </div>
+
         <div class="content-large">
-            
-            
-            
-
+            <button id="Donut" onclick="onClick()" style="background-image: url('donuttt.png'); background-size: cover; width: 80%; height: 80%; border: 0; background-color: rgba(240, 248, 255, 0);"></button>
         </div> <!--Te ir doughnut-->
-        <div class="content-mid">counter </div>
 
+        <div class="content-mid">counter
+            <p>Donuts:<span id="skaitamais">0</span></p>
+            <p id="dps">0 Donuts per/s.</p>
+            <p id="cikclickvalue">1 click value</p>
+        </div>
+            
 
         <div class="shop">
-            <div class="content-small">Kivk e mart</div>
-            <div class="content-mid-large">buy here</div>
-            <div class="content-mid-large">buy here 2</div>
+            <div class="content-small">Kwik e mart
+            </div>
+
+            <div class="content-mid-large">
+                <p>Auto clicker</p>
+                <button onclick="buyautoclick()">Buy</button>
+                <p id="priceautoclicker">30 Donuts</p>
+                <p id="cikautoclicker">0 Auto clickers</p>
+            </div>
+
+            <div class="content-mid-large">
+                <p>Click value</p>
+                <button onclick="buyclickvalue()">Buy</button>
+                <p id="priceclickvalue">200 Donuts</p>
+            </div>
         </div>
 
 
 
     </div>
 
- 
+ <script>
+
+var clicks = 0;
+        var autoclick = 0;
+        var clickval = 1;
+        var multiplier = 1;
+
+    function onClick(){
+        clicks = clicks + (1*clickval*multiplier);
+        update()
+
+    };
+    function update(){
+     
+        document.getElementById("skaitamais").innerHTML = clicks;
+
+        document.getElementById("cikautoclicker").innerHTML = autoclick  +  " Auto clickers";
+        document.getElementById("priceautoclicker").innerHTML = ((autoclick+1)*30) + " Donuts";
+
+        document.getElementById("cikclickvalue").innerHTML = clickval + " click value";
+        document.getElementById("priceclickvalue").innerHTML = ((clickval + 1)*100) + " Donuts";
+
+        document.getElementById("dps").innerHTML = ((autoclick)*multiplier) + " Donuts per/s."
+
+        document.getElementById("cikmultiplier").innerHTML = "Current" + multiplier  +  "x Multipliers";
+        document.getElementById("pricemultiplier").innerHTML = ((multiplier+1)*150) + " Donuts";
+    };
+    function pieskaiti(){
+        clicks = clicks + autoclick*multiplier;
+        update()
+    }
+    setInterval(pieskaiti, 1000);
+
+    function buyautoclick(){
+        if(clicks >= (( autoclick + 1  ) *30 )) {
+            clicks = clicks - (( autoclick + 1  ) *30);
+            autoclick = autoclick + 1;
+            update()
+        }
+
+    
+    };
+
+    function buyclickvalue(){
+        if(clicks >=((clickval + 1)*100)){
+            clicks = clicks - ((clickval + 1) *100);
+            clickval = clickval + 1;
+            update()
+        }
+    };
+
+    function buymultiplier(){
+            if(clicks >=((multiplier + 1)*150)){
+            clicks = clicks - ((multiplier + 1 ) *150);
+            multiplier = multiplier + 1;
+            update()
+            }
+            
+    };
+
+ </script>
 
 
 
