@@ -57,7 +57,7 @@
                 }
                 div {
                     padding:10px;
-                    border: 1px solid #000000;
+                    border: 1px;
                 
                 }
             
@@ -77,6 +77,9 @@
                     grid-row-start: 1;
                     grid-row-end:2 ;
                 }
+                .p, div, button {
+                    font-family: 'Courier New'
+                }
                
                 
         </style>
@@ -84,34 +87,34 @@
 
 <body>
     <div class="container">
-        <div class="header">Donut Clicker  
+        <div class="header" style="text-align: center; font-size: 5vw;">Donut Clicker
         </div>
 
         <div class="content-large">
-            <button id="Donut" onclick="onClick()" style="background-image: url('donuttt.png'); background-size: cover; width: 80%; height: 80%; border: 0; background-color: rgba(240, 248, 255, 0);"></button>
+            <button id="Donut" onclick="onClick()" style="background-image: url('donuttt.png'); background-repeat: no-repeat; background-size: contain; width: 100%; height: 100%; border: 0; background-color: rgba(240, 248, 255, 0);"></button>
         </div>
 
         <div class="content-mid">
-            <p>Donuts:<span id="skaitamais">0</span></p>
-            <p id="dps">0 Donuts per/s.</p>
-            <p id="cikclickvalue">1 click value</p>
+            <p  style="font-size: 2vw;">Donuts:<span id="skaitamais">0</span></p>
+            <p id="dps" style="font-size: 2vw;">0 Donuts per/s</p>
+            <p id="cikclickvalue" style="font-size: 2vw;">1 click value</p>
         </div>
 
         <div class="shop">
-            <div class="content-small">Kwik e mart
+            <div class="content-small" style="font-size: 5vw; text-align: center;">Kwik e mart
             </div>
 
             <div class="content-mid-large">
-                <p>Auto clicker</p>
+                <p style="font-size: 1vw;">Auto clicker</p>
                 <button onclick="buyautoclick()">Buy</button>
-                <p id="priceautoclicker">30 Donuts</p>
-                <p id="cikautoclicker">0 Auto clickers</p>
+                <p id="priceautoclicker"  style="font-size: 1vw;">30 Donuts</p>
+                <p id="cikautoclicker" style="font-size: 1vw;">0 Auto clickers</p>
             </div>
 
             <div class="content-mid-large">
-                <p>Click value</p>
+                <p style="font-size: 1vw;">Click value</p>
                 <button onclick="buyclickvalue()">Buy</button>
-                <p id="priceclickvalue">200 Donuts</p>
+                <p id="priceclickvalue" style="font-size: 1vw;">200 Donuts</p>
             </div>
         </div>
 
