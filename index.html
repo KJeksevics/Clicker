@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Donut clicker</title>
+        <meta charset="utf-8">
+        <style>
+                body {
+                    margin: 0;
+                    background-image: url("fons.jpg");
+                    background-size:cover;
+                    background-repeat: no-repeat;
+                }
+                
+                .shop {
+                    background-image: url("shop.png");
+                    background-size:cover;
+                    background-repeat: no-repeat;
+                    grid-row-start: 3;
+                    grid-row-end: 6;
+                    grid-template-columns: 1fr ;
+                    display: grid; 
+                    grid-template-rows: 1fr 2fr 2fr;
+                    
+                }
+                
+                .donut {
+                    background-image: url("donuttt.png");
+                    background-size:cover;
+                    background-repeat: no-repeat;
+                    grid-row-start: 2;
+                    grid-row-end: 6 ;
+                    grid-template-columns: 1fr ;
+                    display: grid;
+                    grid-template-rows: 3fr;
+                    width: 300px; 
+                    height: 300px;
+                }
+
+                .container {
+                    width: 100vw;
+                    height: 100vh;
+
+                    font-family:'Quicksand', sans-serif;
+                    font-weight: bold ;
+                    font-size: 20px;
+                    
+                    display: grid; 
+
+                    grid-template-columns: 1fr 1fr ;
+                    grid-template-rows: 1fr 1fr 0.5fr 1.5fr 1.5fr 50px;
+                    
+                    gap: 10px; 
+
+                    padding: 10px;
+                    box-sizing: border-box;
+
+                }
+                div {
+                    padding:10px;
+                    border: 1px;
+                
+                }
+            
+                .header {
+                    grid-column-start: 1;
+                    grid-column-end: 2;
+                }
+                .content-large {
+                    grid-row-start: 2;
+                    grid-row-end: 6 ;
+                }
+                .content-mid {
+                    grid-row-start: 1;
+                    grid-row-end:3 ;
+                }
+                .content-small {
+                    grid-row-start: 1;
+                    grid-row-end:2 ;
+                }
+                .p, div, button {
+                    font-family: 'Courier New'
+                }
+               
+                
+        </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header" style="text-align: center; font-size: 5vw;">Donut Clicker
+        </div>
+
+        <div class="content-large">
+            <button id="Donut" onclick="onClick()" style="background-image: url('donuttt.png'); background-repeat: no-repeat; background-size: contain; width: 100%; height: 100%; border: 0; background-color: rgba(240, 248, 255, 0);"></button>
+        </div>
+
+        <div class="content-mid">
+            <p  style="font-size: 2vw;">Donuts:<span id="skaitamais">0</span></p>
+            <p id="dps" style="font-size: 2vw;">0 Donuts per/s</p>
+            <p id="cikclickvalue" style="font-size: 2vw;">1 click value</p>
+        </div>
+
+        <div class="shop">
+            <div class="content-small" style="font-size: 5vw; text-align: center;">Kwik-e-mart
+            </div>
+
+            <div class="content-mid-large">
+                <p style="font-size: 1vw;">Auto clicker</p>
+                <button onclick="buyautoclick()">Buy</button>
+                <p id="priceautoclicker"  style="font-size: 1vw;">30 Donuts</p>
+                <p id="cikautoclicker" style="font-size: 1vw;">0 Auto clickers</p>
+            </div>
+
+            <div class="content-mid-large">
+                <p style="font-size: 1vw;">Click value</p>
+                <button onclick="buyclickvalue()">Buy</button>
+                <p id="priceclickvalue" style="font-size: 1vw;">200 Donuts</p>
+            </div>
+        </div>
+
+    </div>
+
+ <script>
+
+var clicks = 0;
+        var autoclick = 0;
+        var clickval = 1;
+        var multiplier = 1;
+
+    function onClick(){
+        clicks = clicks + (1*clickval*multiplier);
+        update()
+
+    };
+    function update(){
+     
+        document.getElementById("skaitamais").innerHTML = clicks;
+
+        document.getElementById("cikautoclicker").innerHTML = autoclick  +  " Auto clickers";
+        document.getElementById("priceautoclicker").innerHTML = ((autoclick+1)*30) + " Donuts";
+
+        document.getElementById("cikclickvalue").innerHTML = clickval + " click value";
+        document.getElementById("priceclickvalue").innerHTML = ((clickval + 1)*100) + " Donuts";
+
+        document.getElementById("dps").innerHTML = ((autoclick)*multiplier) + " Donuts per/s."
+
+    };
+    function pieskaiti(){
+        clicks = clicks + autoclick*multiplier;
+        update()
+    }
+    setInterval(pieskaiti, 1000);
+
+    function buyautoclick(){
+        if(clicks >= (( autoclick + 1  ) *30 )) {
+            clicks = clicks - (( autoclick + 1  ) *30);
+            autoclick = autoclick + 1;
+            update()
+        }
+
+    
+    };
+
+    function buyclickvalue(){
+        if(clicks >=((clickval + 1)*100)){
+            clicks = clicks - ((clickval + 1) *100);
+            clickval = clickval + 1;
+            update()
+        }
+    };
+
+ </script>
+
+
+
+</body>
+</html>
