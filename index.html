@@ -127,10 +127,11 @@ var clicks = 0;
         var clickval = 1;
         var multiplier = 1;
 
-    function onClick(){
+        function onClick(){
         clicks = clicks + (1*clickval*multiplier);
+        var snd = new Audio("dho.mp3");
+        snd.play();
         update()
-
     };
     function update(){
      
@@ -155,6 +156,8 @@ var clicks = 0;
         if(clicks >= (( autoclick + 1  ) *30 )) {
             clicks = clicks - (( autoclick + 1  ) *30);
             autoclick = autoclick + 1;
+            var snd = new Audio("thx.mp3");
+        snd.play();
             update()
         }
 
@@ -165,6 +168,8 @@ var clicks = 0;
         if(clicks >=((clickval + 1)*100)){
             clicks = clicks - ((clickval + 1) *100);
             clickval = clickval + 1;
+            var snd = new Audio("thx.mp3");
+        snd.play();
             update()
         }
     };

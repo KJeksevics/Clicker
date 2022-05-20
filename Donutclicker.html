@@ -4,7 +4,7 @@
 </head>
 <body>
     <h1 style="text-align:center">Donut Clicker</h1>
-    <button id="Donut" onclick="onClick()" style="background-image: url('Chocolate-Donut-PNG.png'); background-size: cover; width: 300px; height: 300px; border: 0; background-color: rgba(240, 248, 255, 0);"></button>
+    <button id="Donut" onclick="onClick()"  style="background-image: url('Chocolate-Donut-PNG.png'); background-size: cover; width: 300px; height: 300px; border: 0; background-color: rgba(240, 248, 255, 0);"></button>
     <p>Donuts:<span id="skaitamais">0</span></p>
     <p id="dps">0 Donuts per/s.</p>
     <h2>Kwiki shop</h2>
@@ -19,16 +19,20 @@
     <button onclick="buymultiplier()"></button>
     <p id="pricemultiplier">300 Donuts</p>
     <p id="cikmultiplier">current 1x multiplier</p>
+
     <canvas></canvas>
 
-    <script>
+    <script type="text/javascript" >
         var clicks = 0;
         var autoclick = 0;
         var clickval = 1;
         var multiplier = 1;
 
+
     function onClick(){
         clicks = clicks + (1*clickval*multiplier);
+        var snd = new Audio("dho.mp3");
+        snd.play();
         update()
 
     };
